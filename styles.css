@@ -1,0 +1,780 @@
+/* Update the root variables at the top of styles.css */
+:root {
+  --primary: #4f46e5;       /* Indigo */
+  --primary-dark: #4338ca;  /* Darker Indigo */
+  --secondary: #64748b;     /* Slate */
+  --accent: #8b5cf6;        /* Purple */
+  --background: #f8fafc;    /* Light Gray (instead of Light Purple) */
+  --surface: #ffffff;       /* White (instead of Light Indigo) */
+  --text: #0f172a;         /* Dark Slate (instead of Navy) */
+  --text-light: #475569;   /* Darker Gray */
+  --shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(79, 70, 229, 0.1);
+  --card-bg: #ffffff;
+  --input-bg: #f8fafc;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%234f46e5" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>') 12 12, auto;
+}
+
+header {
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hero Section */
+#intro {
+  padding: 5rem 1.5rem;
+  background: var(--background);
+}
+
+.intro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.intro-content {
+  padding-right: 2rem;
+}
+
+.intro-content h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--text); /* Remove gradient for better readability */
+}
+
+.intro-content p {
+  font-size: 1.25rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--primary);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-shadow: var(--shadow);
+}
+
+.button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Featured Listings Section */
+#featured-listings {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 3rem;
+  background-color: var(--surface);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+#featured-listings h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.listings-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.listing {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.2s;
+  border: 1px solid var(--secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.listing h3 {
+  font-size: 1.25rem;
+  padding: 1.5rem;
+  margin: 0;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.listing p {
+  padding: 0.5rem 1.5rem;
+  color: var(--text-light);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.listing .view-details {
+  margin-top: auto;
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%234f46e5" transform="rotate(-45)" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>') 12 12, pointer !important;
+}
+
+button.view-details {
+  margin-top: auto;
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%234f46e5" transform="rotate(-45)" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>') 12 12, pointer !important;
+}
+
+.listing:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.listing .view-details:hover {
+  background: var(--primary-dark);
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%234f46e5" transform="rotate(-45)" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>') 12 12, pointer !important;
+}
+
+button.view-details:hover {
+  background: var(--primary-dark);
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%234f46e5" transform="rotate(-45)" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>') 12 12, pointer !important;
+}
+
+.show-all-listings {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.show-all-listings .button {
+  font-size: 1.125rem;
+  padding: 1rem 3rem;
+}
+
+/* Make listings responsive */
+@media (max-width: 1024px) {
+  .listings-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .listings-container {
+    grid-template-columns: 1fr;
+  }
+  
+  #featured-listings {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Footer */
+footer {
+  background: var(--text);
+  color: var(--white);
+  padding: 2rem;
+  text-align: center;
+}
+
+#map-container {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow to the map */
+}
+
+#details-section {
+    display: none;
+    background-color: #f8f8f8; /* Light background for details */
+    border-radius: 10px;
+    padding: 25px; /* Increased padding */
+}
+
+#back-to-listings {
+    margin-top: 20px;
+    background-color: #333;
+    border-radius: 8px; /* More rounded button edges */
+}
+
+/* Pagination styles */
+#pagination-container {
+    text-align: center;
+    margin-top: 30px; /* Increased margin */
+}
+
+.page-button {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary); /* Add border */
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 8px; /* More rounded button edges */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.page-button:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.page-button.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Filter and Sort Container */
+#filter-sort-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Changed to 3 columns */
+  gap: 2rem;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  padding: 1.5rem;
+  background: var(--surface);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+/* Style for the new image container */
+.listing-preview-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--background);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.listing-preview-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.listing-preview-image img:hover {
+  transform: scale(1.02);
+}
+
+/* Style for the image container */
+.listing-preview-images {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.preview-image {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Reduced height to fit both images */
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+    background: var(--card-bg);
+}
+
+.preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.preview-image:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  #filter-sort-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .listing-preview-image {
+    order: -1; /* Move image to top on mobile */
+  }
+  
+  #filter-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+    #filter-sort-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .listing-preview-images {
+        order: -1; /* Move images to top on mobile */
+    }
+    
+    .preview-image {
+        height: 250px; /* Slightly taller on mobile */
+    }
+}
+
+#sort-container {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+#sort-select {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.75rem;
+  border: 1px solid var(--secondary);
+  border-radius: 0.5rem;
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+#filter-container {
+  flex: 0 0 300px; /* Fixed width of 300px */
+  border: 1px solid var(--secondary);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background: var(--surface);
+}
+
+.filter-group {
+    margin-bottom: 15px; /* Increased margin */
+}
+
+.filter-group h4 {
+    margin-top: 0;
+    margin-bottom: 10px; /* Add margin below */
+    font-weight: 600; /* Semi-bold weight */
+    color: var(--text); /* Change from primary to text color */
+}
+
+.filter-checkbox {
+    margin-right: 8px; /* Increased margin */
+}
+
+/* Price Range Filter Styles */
+.price-range-inputs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.price-range-inputs input {
+    width: 100px;
+    padding: 0.5rem;
+    border: 1px solid var(--secondary);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    background: var(--input-bg);
+}
+
+.price-range-inputs span {
+    color: var(--text); /* Darker color for better visibility */
+}
+
+.price-range-inputs button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.predefined-ranges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.price-range-btn {
+    padding: 0.5rem 1rem;
+    background: var(--input-bg);
+    border: 1px solid var(--secondary);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+    color: var(--text);
+}
+
+.price-range-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+.price-range-btn.active {
+    background: var(--primary);
+    color: var (--white);
+    border-color: var(--primary);
+}
+
+/* Styling for the form in the contact section */
+#contact-form {
+    display: grid;
+    grid-gap: 15px; /* Spacing between form elements */
+}
+
+#contact-form label {
+    font-weight: 600;
+    color: var(--text);
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="tel"],  /* Add tel input type */
+#contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--secondary);
+    border-radius: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--text);
+    background: var (--input-bg);
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Style phone input specifically */
+#contact-form input[type="tel"] {
+    font-family: monospace; /* Better for number readability */
+    letter-spacing: 0.5px;
+}
+
+/* Style phone input placeholder */
+#contact-form input[type="tel"]::placeholder {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text-light);
+    letter-spacing: normal;
+}
+
+/* Invalid state for phone */
+#contact-form input[type="tel"]:invalid {
+    border-color: #dc2626;
+}
+
+#contact-form input[type="tel"]:invalid:focus {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* Valid state for phone */
+#contact-form input[type="tel"]:valid {
+    border-color: #059669;
+}
+
+#contact-form input[type="tel"]:valid:focus {
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+/* CSS for the Intro Section */
+#intro {
+    display: flex; /* Use flexbox for easy alignment */
+    align-items: center; /* Vertically center content */
+    justify-content: space-around; /* Space between text and image */
+    padding: 40px 20px;
+}
+
+.intro-content {
+    text-align: left;
+    flex: 1; /* Allow text content to take available space */
+    margin-right: 40px; /* Add spacing */
+}
+
+.intro-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.intro-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.intro-image {
+    flex: 1; /* Allow image to take available space */
+}
+
+.intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* In styles.css */
+.show-all-listings {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Add some space above the button */
+}
+
+/* Removed empty ruleset for .show-all-listings .button */
+
+#featured-listings {
+    background-color: #fefefe; /* white */
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+}
+
+/* Update the #listings section styles */
+#listings {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Contact Form Styles */
+#contact-form {
+    display: grid;
+    grid-gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+#contact-form label {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="tel"],
+#contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--secondary);
+    border-radius: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--input-bg);
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+#contact-form input::placeholder {
+    color: var(--text-light);
+}
+
+#contact-form button[type="submit"] {
+    background: var(--primary);
+    color: var(--white);
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#contact-form button[type="submit"]:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Contact Section */
+#contact {
+    padding: 4rem 1.5rem;
+    background: var(--background);
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-container h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.contact-intro {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* Add validation styles */
+#contact-form input:invalid,
+#contact-form textarea:invalid {
+    border-color: #dc2626;
+}
+
+#contact-form input:invalid:focus,
+#contact-form textarea:invalid:focus {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* Style phone input specifically */
+#contact-form input[type="tel"] {
+    font-family: monospace; /* Better for number readability */
+    letter-spacing: 0.5px;
+}
+
+/* Style phone input placeholder */
+#contact-form input[type="tel"]::placeholder {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text-light);
+    letter-spacing: normal;
+}
+
+/* Invalid state for phone */
+#contact-form input[type="tel"]:invalid {
+    border-color: #dc2626;
+}
+
+#contact-form input[type="tel"]:invalid:focus {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* Valid state for phone */
+#contact-form input[type="tel"]:valid {
+    border-color: #059669;
+}
+
+#contact-form input[type="tel"]:valid:focus {
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+input, 
+select, 
+textarea {
+  background: var(--input-bg);
+  color: var(--text);
+  border-color: var(--secondary);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+a, 
+button,
+input[type="submit"],
+.view-details,
+.price-range-btn,
+.page-button,
+.listing,
+select,
+input[type="checkbox"],
+.filter-checkbox,
+.listing button,
+#sort-select,
+.filter-group label {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%234f46e5" transform="rotate(-45)" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>') 12 12, pointer;
+}
+
+/* Add specific styles for filter checkboxes and labels */
+.filter-group label:hover,
+.filter-checkbox:hover {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%234f46e5" transform="rotate(-45)" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>') 12 12, pointer;
+}
+
+/* Ensure sort dropdown has tilted cursor */
+#sort-select:hover {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%234f46e5" transform="rotate(-45)" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>') 12 12, pointer;
+}
