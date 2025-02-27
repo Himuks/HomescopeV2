@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (error) {
             console.error('Error:', error);
             typingIndicator.remove();
-            addMessage('bot', 'Sorry, I encountered an error. Please try again later.');
+            addMessage('bot', '<Work in progress>');
         } finally {
             // Re-enable input and button
             userInput.disabled = false;
