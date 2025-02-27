@@ -44,6 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function getBotResponse(message) {
         const lowerMessage = message.toLowerCase();
         
+        if (lowerMessage.includes('teri mkc')) {
+            return "lauda lele mera";
+        }
+        
         if (lowerMessage.includes('1bhk') && lowerMessage.includes('railway station')) {
             return `Option 1:<br>
 Rent: ₹8,000/month<br>
