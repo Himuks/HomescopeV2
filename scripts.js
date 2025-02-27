@@ -20,4 +20,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Help tooltip functionality
+    const helpButton = document.getElementById('help-button');
+    const tooltipContent = document.querySelector('.tooltip-content');
+
+    if (helpButton && tooltipContent) {
+        helpButton.addEventListener('click', function() {
+            tooltipContent.classList.toggle('active');
+        });
+
+        // Close tooltip when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.help-tooltip')) {
+                tooltipContent.classList.remove('active');
+            }
+        });
+    }
 });
