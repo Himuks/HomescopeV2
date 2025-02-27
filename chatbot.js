@@ -1,4 +1,4 @@
-const GEMINI_API_KEY = 'AIzaSyC2uech1aUixZNYQG8dc8jVp-Goy7Cqhf0';
+const GEMINI_API_KEY = 'demo';
 const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
 
 document.addEventListener('DOMContentLoaded', function() {
