@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    async function sendMessage() {
+    function sendMessage() {
         const message = userInput.value.trim();
         if (!message) return;
 
@@ -31,50 +31,49 @@ document.addEventListener('DOMContentLoaded', function() {
         addMessage('user', message);
         userInput.value = '';
 
-        // Show typing indicator
-        const typingIndicator = addMessage('bot', '...');
+        // Generate bot response
+        const response = getBotResponse(message);
+        addMessage('bot', response);
 
-        try {
-            const response = await fetch(`${API_URL}?key=${GEMINI_API_KEY}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    contents: [{
-                        parts: [{
-                            text: message
-                        }]
-                    }]
-                })
-            });
+        // Re-enable input and button
+        userInput.disabled = false;
+        sendButton.disabled = false;
+        userInput.focus();
+    }
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+    function getBotResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        if (lowerMessage.includes('1bhk') && lowerMessage.includes('railway station')) {
+            return `Option 1:<br>
+Rent: ₹8,000/month<br>
+Size: 550 sq. ft.<br>
+Floor: Ground<br>
+Area Type: Normal<br>
+Furnished: Yes<br>
+Tenant Preference: Bachelor<br>
+Phone: +917567890123<br><br>
 
-            const data = await response.json();
+Option 2:<br>
+Rent: ₹7,500/month<br>
+Size: 650 sq. ft.<br>
+Floor: Ground<br>
+Area Type: Normal<br>
+Furnished: Yes<br>
+Tenant Preference: Bachelor<br>
+Phone: +911932456871<br><br>
 
-            if (!data || !data.candidates || data.candidates.length === 0 || !data.candidates[0].content || !data.candidates[0].content.parts || data.candidates[0].content.parts.length === 0) {
-                throw new Error('Invalid API response format');
-            }
-            
-            const botResponse = data.candidates[0].content.parts[0].text;
-
-            // Remove typing indicator and add bot response
-            typingIndicator.remove();
-            addMessage('bot', botResponse);
-
-        } catch (error) {
-            console.error('Error:', error);
-            typingIndicator.remove();
-            addMessage('bot', 'Sorry, I encountered an error. Please try again later.');
-        } finally {
-            // Re-enable input and button
-            userInput.disabled = false;
-            sendButton.disabled = false;
-            userInput.focus();
+Option 3:<br>
+Rent: ₹8,000/month<br>
+Size: 650 sq. ft.<br>
+Floor: Ground<br>
+Area Type: Normal<br>
+Furnished: No<br>
+Tenant Preference: Bachelor<br>
+Phone: +917376890215`;
         }
+
+        return "Sorry, we couldn't find what you were looking for. We're currently working on improving our website to enhance your experience. Thank you for your patience!";
     }
 
     function addMessage(sender, text) {
